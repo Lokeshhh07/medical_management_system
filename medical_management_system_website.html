@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MediCare — Medical Management System</title>
+<style>
+:root{--navy:#15304b;--blue:#2477d4;--teal:#17a99a;--bg:#f4f7fb;--ink:#203247;--muted:#708196;--line:#e4ebf3;--white:#fff;--red:#d84e5b;--amber:#c58a1b}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink)}button,input,select,textarea{font:inherit}button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font-weight:650}.app{min-height:100vh;display:grid;grid-template-columns:245px 1fr}.sidebar{background:var(--navy);color:white;padding:25px 16px;display:flex;flex-direction:column;gap:24px}.brand{display:flex;align-items:center;gap:11px;padding:0 8px;font-size:19px;font-weight:800}.logo{display:grid;place-items:center;width:39px;height:39px;border-radius:13px;background:#fff;color:var(--blue);font-size:25px}.brand small{display:block;font-size:11px;font-weight:500;color:#b8c9da;letter-spacing:1px;margin-top:2px}.nav-label{font-size:10px;color:#9fb4c9;letter-spacing:1.4px;padding:0 12px;margin-bottom:-12px}.nav{display:grid;gap:6px}.nav button{color:#d3dfeb;background:transparent;text-align:left;display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px}.nav button.active,.nav button:hover{background:#254663;color:white}.nav .ico{width:20px;text-align:center;font-size:17px}.side-note{margin-top:auto;border:1px solid #3b5871;background:#1b3a56;padding:14px;border-radius:14px;font-size:12px;color:#d1e0ec;line-height:1.5}.main{min-width:0}.topbar{height:78px;background:white;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:12px}.crumb{color:var(--muted);font-size:13px}.crumb strong{color:var(--ink)}.profile{display:flex;align-items:center;gap:10px;font-size:13px}.avatar{width:38px;height:38px;display:grid;place-items:center;border-radius:50%;background:#e1f5f1;color:#117f75;font-weight:800}.content{padding:28px 30px;max-width:1500px;margin:auto}.welcome{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:24px}.welcome h1{font-size:27px;margin:0 0 7px;letter-spacing:-.7px}.welcome p{margin:0;color:var(--muted);font-size:14px}.primary{background:var(--blue);color:white}.soft{background:#eaf3ff;color:#1d67b6}.danger{background:#fff0f0;color:var(--red)}.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-bottom:22px}.stat,.panel{background:white;border:1px solid var(--line);border-radius:16px;box-shadow:0 4px 14px #1d35570a}.stat{padding:20px;display:flex;align-items:center;justify-content:space-between;gap:12px}.stat .label{font-size:12px;color:var(--muted);margin-bottom:10px}.stat .number{font-size:28px;font-weight:800;letter-spacing:-1px}.stat .delta{font-size:11px;color:var(--teal);margin-top:5px}.stat-icon{width:46px;height:46px;border-radius:14px;background:#eaf3ff;display:grid;place-items:center;font-size:22px}.stat:nth-child(2) .stat-icon{background:#e6f8f4}.stat:nth-child(3) .stat-icon{background:#fff4df}.stat:nth-child(4) .stat-icon{background:#f2edff}.grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);gap:18px;margin-bottom:20px}.panel{padding:21px;min-width:0}.panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}.panel h2{font-size:16px;margin:0}.muted{color:var(--muted);font-size:12px}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}th{text-align:left;color:var(--muted);font-size:11px;font-weight:650;padding:11px 10px;border-bottom:1px solid var(--line)}td{padding:14px 10px;border-bottom:1px solid #edf1f6}tbody tr:last-child td{border-bottom:0}.person{display:flex;align-items:center;gap:9px}.mini-avatar{width:32px;height:32px;border-radius:10px;background:#eaf3ff;display:grid;place-items:center;color:#246fbd;font-weight:750}.pill{font-size:11px;padding:5px 8px;border-radius:20px;background:#e6f8f1;color:#16846c}.pill.pending{background:#fff4df;color:#9a6a13}.pill.cancel{background:#ffeded;color:#c34551}.appointment{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.appointment:last-child{border:0}.datebox{width:47px;flex-shrink:0;border-radius:11px;background:#edf5ff;text-align:center;padding:7px 2px;color:#1d68b9}.datebox b{display:block;font-size:18px}.datebox small{font-size:9px;font-weight:800;letter-spacing:1px}.appointment-info{flex:1;min-width:0}.appointment-info b{font-size:13px}.appointment-info p{margin:5px 0 0;font-size:11px;color:var(--muted)}.view{background:none;color:var(--blue);padding:5px;font-size:12px}.section{display:none}.section.active{display:block}.section-title{display:flex;justify-content:space-between;align-items:center;gap:14px;margin-bottom:20px}.section-title h1{margin:0;font-size:25px}.section-title p{margin:6px 0 0;color:var(--muted);font-size:13px}.toolbar{display:flex;gap:9px;margin-bottom:15px}.toolbar input{flex:1;min-width:0}.field, input,select,textarea{border:1px solid #dce5ef;border-radius:9px;padding:10px 11px;background:white;color:var(--ink);width:100%;outline:none}.field:focus,input:focus,select:focus,textarea:focus{border-color:#7ab2ed;box-shadow:0 0 0 3px #2477d415}.form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.form-grid label{display:grid;gap:7px;font-size:12px;color:#52677c;font-weight:650}.form-grid .full{grid-column:1/-1}.form-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.empty{text-align:center;padding:35px;color:var(--muted)}.notice{background:#fff8e9;border:1px solid #f1dfb5;border-radius:12px;padding:13px 15px;color:#76591d;font-size:12px;line-height:1.5;margin-bottom:18px}.health-box{background:linear-gradient(135deg,#163653,#2477d4);color:white;border-radius:16px;padding:22px;margin-bottom:18px}.health-box h2{margin:0 0 7px}.health-box p{color:#d5e7fb;font-size:13px;line-height:1.6}.result{white-space:pre-line;background:#f4f8fc;border:1px solid var(--line);border-radius:12px;padding:15px;line-height:1.6;font-size:13px;margin-top:14px}.footer{text-align:center;color:#8a9aad;font-size:11px;padding:24px 10px}.hamburger{display:none;background:#edf3f8;color:var(--navy);padding:8px 10px}
+@media(max-width:1000px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}.grid{grid-template-columns:1fr}.app{grid-template-columns:210px 1fr}.content{padding:22px 18px}.topbar{padding:0 18px}}
+@media(max-width:680px){.app{display:block}.sidebar{display:none;position:fixed;z-index:10;inset:0 auto 0 0;width:250px;box-shadow:10px 0 35px #12283b44}.sidebar.open{display:flex}.hamburger{display:inline-block}.topbar{height:66px;padding:0 14px}.content{padding:22px 13px}.welcome{align-items:flex-start}.welcome h1{font-size:23px}.welcome .primary{font-size:12px;padding:10px}.stats{gap:10px}.stat{padding:14px}.stat .number{font-size:24px}.stat-icon{width:38px;height:38px;font-size:18px}.panel{padding:15px}.form-grid{grid-template-columns:1fr}.form-grid .full{grid-column:auto}.profile .profile-text{display:none}.section-title{align-items:flex-start}.section-title h1{font-size:22px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="logo">✚</div><div>MediCare<small>MANAGEMENT SYSTEM</small></div></div>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav">
+    <button class="active" data-page="dashboard"><span class="ico">▦</span> Dashboard</button>
+    <button data-page="patients"><span class="ico">♙</span> Patients</button>
+    <button data-page="appointments"><span class="ico">▣</span> Appointments</button>
+    <button data-page="medicines"><span class="ico">✚</span> Medicine Inventory</button>
+    <button data-page="assistant"><span class="ico">✧</span> ML Health Assistant</button>
+  </nav>
+  <div class="side-note"><b>Project demo</b><br>This website stores demo data in this browser only. Do not enter real patient or sensitive medical information.</div>
+</aside>
+<main class="main">
+<header class="topbar">
+  <div style="display:flex;align-items:center;gap:12px"><button class="hamburger" id="menuBtn" aria-label="Open menu">☰</button><div class="crumb">Workspace / <strong id="crumb">Dashboard</strong></div></div>
+  <div class="profile"><div class="avatar">M</div><div class="profile-text"><b>Medical Admin</b><div class="muted">Administrator</div></div></div>
+</header>
+<div class="content">
+<section class="section active" id="dashboard">
+  <div class="welcome"><div><h1>Good day, Admin 👋</h1><p>Here's what's happening in your medical center today.</p></div><button class="primary" data-goto="appointments">＋ New appointment</button></div>
+  <div class="stats">
+    <div class="stat"><div><div class="label">Total patients</div><div class="number" id="statPatients">0</div><div class="delta">Registered records</div></div><div class="stat-icon">♙</div></div>
+    <div class="stat"><div><div class="label">Appointments</div><div class="number" id="statAppointments">0</div><div class="delta">Scheduled records</div></div><div class="stat-icon">▣</div></div>
+    <div class="stat"><div><div class="label">Medicine items</div><div class="number" id="statMedicines">0</div><div class="delta">Inventory entries</div></div><div class="stat-icon">✚</div></div>
+    <div class="stat"><div><div class="label">Low stock alerts</div><div class="number" id="statLow">0</div><div class="delta" style="color:var(--amber)">Items at or below 10</div></div><div class="stat-icon">⚑</div></div>
+  </div>
+  <div class="grid">
+    <div class="panel"><div class="panel-head"><div><h2>Recent patients</h2><div class="muted" style="margin-top:5px">Latest patient records</div></div><button class="view" data-goto="patients">View all →</button></div><div class="table-wrap"><table><thead><tr><th>PATIENT</th><th>AGE</th><th>CONDITION / NOTE</th></tr></thead><tbody id="recentPatients"></tbody></table></div></div>
+    <div class="panel"><div class="panel-head"><div><h2>Upcoming appointments</h2><div class="muted" style="margin-top:5px">Your schedule</div></div><button class="view" data-goto="appointments">View all →</button></div><div id="upcoming"></div></div>
+  </div>
+  <div class="panel"><div class="panel-head"><div><h2>Inventory overview</h2><div class="muted" style="margin-top:5px">Medicine stock levels</div></div><button class="view" data-goto="medicines">Manage inventory →</button></div><div class="table-wrap"><table><thead><tr><th>MEDICINE</th><th>STOCK</th><th>STATUS</th></tr></thead><tbody id="inventoryOverview"></tbody></table></div></div>
+</section>
+<section class="section" id="patients">
+  <div class="section-title"><div><h1>Patients</h1><p>Register and manage patient records.</p></div><button class="primary" id="addPatientBtn">＋ Add patient</button></div>
+  <div class="toolbar"><input id="patientSearch" placeholder="Search by name, ID or condition…" aria-label="Search patients"></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>PATIENT</th><th>AGE</th><th>PHONE</th><th>CONDITION / NOTE</th><th>ACTION</th></tr></thead><tbody id="patientsTable"></tbody></table></div></div>
+</section>
+<section class="section" id="appointments">
+  <div class="section-title"><div><h1>Appointments</h1><p>Schedule and track appointments.</p></div><button class="primary" id="addAppointmentBtn">＋ New appointment</button></div>
+  <div class="toolbar"><input id="appointmentSearch" placeholder="Search patient, doctor or date…" aria-label="Search appointments"></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>PATIENT</th><th>DOCTOR</th><th>DATE</th><th>TIME</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="appointmentsTable"></tbody></table></div></div>
+</section>
+<section class="section" id="medicines">
+  <div class="section-title"><div><h1>Medicine inventory</h1><p>Track medicine stock and low-stock items.</p></div><button class="primary" id="addMedicineBtn">＋ Add medicine</button></div>
+  <div class="notice">Demo inventory only. This tool does not prescribe medicine or validate medication safety.</div>
+  <div class="toolbar"><input id="medicineSearch" placeholder="Search medicine name or category…" aria-label="Search medicines"></div>
+  <div class="panel"><div class="table-wrap"><table><thead><tr><th>MEDICINE</th><th>CATEGORY</th><th>QUANTITY</th><th>EXPIRY</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="medicinesTable"></tbody></table></div></div>
+</section>
+<section class="section" id="assistant">
+  <div class="section-title"><div><h1>ML Health Assistant</h1><p>Educational symptom information demo.</p></div></div>
+  <div class="notice"><b>Important:</b> This is not a trained machine-learning model and cannot diagnose disease. It provides general safety guidance only. For urgent or severe symptoms, contact local emergency services or a qualified clinician.</div>
+  <div class="health-box"><h2>Symptom guidance demo ✧</h2><p>Select a symptom to see general next-step guidance. This is not a substitute for medical care.</p></div>
+  <div class="panel"><form id="healthForm"><div class="form-grid"><label>Choose a symptom<select id="symptom"><option value="fever">Fever</option><option value="headache">Headache</option><option value="cough">Cough / sore throat</option><option value="stomach">Stomach discomfort</option><option value="fatigue">Fatigue</option><option value="chest">Chest pain or difficulty breathing</option></select></label><label>Duration<select id="duration"><option>Started today</option><option>2–3 days</option><option>More than 3 days</option></select></label><label class="full">Additional notes (optional)<textarea id="symptomNotes" rows="3" placeholder="Describe symptoms in general terms (do not enter personal identifiers)"></textarea></label></div><div class="form-actions"><button class="primary" type="submit">Get general guidance</button></div></form><div id="healthResult" class="result" hidden></div></div>
+</section>
+<div class="footer">MediCare Medical Management System · Student project demo · Data stays in this browser</div>
+</div>
+</main>
+</div>
+<div id="modalRoot"></div>
+<script>
+const KEY='medicare_demo_v1';
+const defaults={patients:[],appointments:[],medicines:[]};
+let db=loadDB();
+function loadDB(){try{return {...defaults,...JSON.parse(localStorage.getItem(KEY)||'{}')}}catch(e){return {...defaults}}}
+function save(){localStorage.setItem(KEY,JSON.stringify(db));render()}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function emptyRow(cols,msg){return `<tr><td colspan="${cols}" class="empty">${msg}</td></tr>`}
+function go(page){document.querySelectorAll('.section').forEach(x=>x.classList.toggle('active',x.id===page));document.querySelectorAll('.nav button').forEach(x=>x.classList.toggle('active',x.dataset.page===page));document.getElementById('crumb').textContent=({dashboard:'Dashboard',patients:'Patients',appointments:'Appointments',medicines:'Medicine Inventory',assistant:'ML Health Assistant'})[page]||'Dashboard';document.getElementById('sidebar').classList.remove('open');window.scrollTo(0,0)}
+document.querySelectorAll('[data-page]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.page)));
+document.querySelectorAll('[data-goto]').forEach(b=>b.addEventListener('click',()=>go(b.dataset.goto)));
+document.getElementById('menuBtn').addEventListener('click',()=>document.getElementById('sidebar').classList.toggle('open'));
+function statusPill(status){let cls=status==='Confirmed'?'':status==='Cancelled'?'cancel':'pending';return `<span class="pill ${cls}">${esc(status)}</span>`}
+function render(){
+ document.getElementById('statPatients').textContent=db.patients.length;
+ document.getElementById('statAppointments').textContent=db.appointments.length;
+ document.getElementById('statMedicines').textContent=db.medicines.length;
+ document.getElementById('statLow').textContent=db.medicines.filter(m=>Number(m.quantity)<=10).length;
+ const recent=[...db.patients].slice(-5).reverse();
+ document.getElementById('recentPatients').innerHTML=recent.length?recent.map(p=>`<tr><td><div class="person"><div class="mini-avatar">${esc(p.name.charAt(0).toUpperCase())}</div><div><b>${esc(p.name)}</b><div class="muted">${esc(p.id)}</div></div></div></td><td>${esc(p.age)}</td><td>${esc(p.condition||'—')}</td></tr>`).join(''):emptyRow(3,'No patients yet. Add your first patient.');
+ const aps=[...db.appointments].sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time)).slice(0,4);
+ document.getElementById('upcoming').innerHTML=aps.length?aps.map(a=>{let d=new Date(a.date+'T12:00:00');return `<div class="appointment"><div class="datebox"><b>${isNaN(d)?'—':d.getDate()}</b><small>${isNaN(d)?'':d.toLocaleString('en',{month:'short'}).toUpperCase()}</small></div><div class="appointment-info"><b>${esc(a.patient)}</b><p>${esc(a.doctor)} · ${esc(a.time)}</p></div>${statusPill(a.status)}</div>`}).join(''):'<div class="empty">No appointments scheduled.</div>';
+ document.getElementById('inventoryOverview').innerHTML=db.medicines.length?[...db.medicines].slice(0,5).map(m=>`<tr><td><b>${esc(m.name)}</b></td><td>${esc(m.quantity)} units</td><td>${Number(m.quantity)<=10?'<span class="pill pending">Low stock</span>':'<span class="pill">In stock</span>'}</td></tr>`).join(''):emptyRow(3,'No inventory items added.');
+ const pq=(document.getElementById('patientSearch')?.value||'').toLowerCase();
+ const ps=db.patients.filter(p=>(p.name+' '+p.id+' '+p.condition).toLowerCase().includes(pq));
+ document.getElementById('patientsTable').innerHTML=ps.length?ps.map(p=>`<tr><td><div class="person"><div class="mini-avatar">${esc(p.name.charAt(0).toUpperCase())}</div><div><b>${esc(p.name)}</b><div class="muted">${esc(p.id)}</div></div></div></td><td>${esc(p.age)}</td><td>${esc(p.phone||'—')}</td><td>${esc(p.condition||'—')}</td><td><button class="danger" onclick="removeItem('patients','${p.id}')">Delete</button></td></tr>`).join(''):emptyRow(5,'No matching patient records.');
+ const aq=(document.getElementById('appointmentSearch')?.value||'').toLowerCase();
+ const as=db.appointments.filter(a=>(a.patient+' '+a.doctor+' '+a.date).toLowerCase().includes(aq));
+ document.getElementById('appointmentsTable').innerHTML=as.length?as.map(a=>`<tr><td><b>${esc(a.patient)}</b></td><td>${esc(a.doctor)}</td><td>${esc(a.date)}</td><td>${esc(a.time)}</td><td>${statusPill(a.status)}</td><td><button class="danger" onclick="removeItem('appointments','${a.id}')">Delete</button></td></tr>`).join(''):emptyRow(6,'No matching appointments.');
+ const mq=(document.getElementById('medicineSearch')?.value||'').toLowerCase();
+ const ms=db.medicines.filter(m=>(m.name+' '+m.category).toLowerCase().includes(mq));
+ document.getElementById('medicinesTable').innerHTML=ms.length?ms.map(m=>`<tr><td><b>${esc(m.name)}</b></td><td>${esc(m.category)}</td><td>${esc(m.quantity)}</td><td>${esc(m.expiry||'—')}</td><td>${Number(m.quantity)<=10?'<span class="pill pending">Low stock</span>':'<span class="pill">In stock</span>'}</td><td><button class="danger" onclick="removeItem('medicines','${m.id}')">Delete</button></td></tr>`).join(''):emptyRow(6,'No matching medicines.');
+}
+function removeItem(type,id){if(confirm('Delete this demo record?')){db[type]=db[type].filter(x=>x.id!==id);save()}}
+function openModal(title,fields,onSave){const root=document.getElementById('modalRoot');root.innerHTML=`<div style="position:fixed;inset:0;background:#0d223a99;z-index:30;display:grid;place-items:center;padding:16px" id="modalShade"><div class="panel" style="width:min(520px,100%);max-height:90vh;overflow:auto;box-shadow:0 25px 80px #0003"><div class="panel-head"><h2>${title}</h2><button class="view" id="closeModal">✕</button></div><form id="modalForm"><div class="form-grid">${fields.map(f=>`<label class="${f.full?'full':''}">${f.label}${f.type==='select'?`<select name="${f.name}" ${f.required?'required':''}>${f.options.map(o=>`<option>${esc(o)}</option>`).join('')}</select>`:`<input name="${f.name}" type="${f.type||'text'}" ${f.required?'required':''} ${f.min!==undefined?`min="${f.min}"`:''} placeholder="${esc(f.placeholder||'')}" ${f.value?`value="${esc(f.value)}"`:''}>`}</label>`).join('')}</div><div class="form-actions"><button type="button" id="cancelModal" class="soft">Cancel</button><button class="primary" type="submit">Save record</button></div></form></div></div>`;
+ const close=()=>root.innerHTML='';document.getElementById('closeModal').onclick=close;document.getElementById('cancelModal').onclick=close;document.getElementById('modalShade').addEventListener('click',e=>{if(e.target.id==='modalShade')close()});document.getElementById('modalForm').onsubmit=e=>{e.preventDefault();let data=Object.fromEntries(new FormData(e.target).entries());onSave(data);close();save()}
+}
+function uid(prefix){return prefix+'-'+Date.now().toString().slice(-7)}
+document.getElementById('addPatientBtn').onclick=()=>openModal('Add patient',[{name:'name',label:'Full name',required:true},{name:'age',label:'Age',type:'number',min:0,required:true},{name:'phone',label:'Phone (optional)',type:'tel'},{name:'condition',label:'Condition / note',full:true}],d=>db.patients.push({id:uid('PT'),...d}));
+document.getElementById('addAppointmentBtn').onclick=()=>openModal('New appointment',[{name:'patient',label:'Patient name',required:true},{name:'doctor',label:'Doctor / department',required:true},{name:'date',label:'Date',type:'date',required:true},{name:'time',label:'Time',type:'time',required:true},{name:'status',label:'Status',type:'select',options:['Scheduled','Confirmed','Cancelled']}],d=>db.appointments.push({id:uid('AP'),...d}));
+document.getElementById('addMedicineBtn').onclick=()=>openModal('Add medicine',[{name:'name',label:'Medicine name',required:true},{name:'category',label:'Category',required:true},{name:'quantity',label:'Quantity',type:'number',min:0,required:true},{name:'expiry',label:'Expiry date',type:'date'}],d=>db.medicines.push({id:uid('MD'),...d}));
+document.getElementById('patientSearch').addEventListener('input',render);
+document.getElementById('appointmentSearch').addEventListener('input',render);
+document.getElementById('medicineSearch').addEventListener('input',render);
+document.getElementById('healthForm').addEventListener('submit',e=>{e.preventDefault();const s=document.getElementById('symptom').value,d=document.getElementById('duration').value;let msg={
+fever:'Fever can have many causes. Rest, drink fluids, and monitor your temperature. Seek advice from a qualified clinician if it persists, worsens, or you are concerned.',
+headache:'Headaches have many causes. Rest, hydrate, and reduce screen strain if appropriate. Seek urgent medical care for a sudden severe headache, confusion, weakness, fainting, or headache after a serious injury.',
+cough:'Coughs can have many causes. Rest, fluids, and avoiding smoke may help. Contact a clinician if symptoms persist or worsen, or if you have high fever or risk factors.',
+stomach:'Stomach discomfort can have many causes. Consider hydration and note what makes it better or worse. Seek urgent care for severe or worsening pain, blood in vomit/stool, fainting, or persistent vomiting.',
+fatigue:'Fatigue can be related to sleep, stress, illness, or other causes. Rest and hydration may help. Arrange clinical advice if it is persistent, severe, or unexplained.',
+chest:'Chest pain or difficulty breathing can be an emergency. Seek emergency medical care now; do not rely on this demo for assessment.'
+}[s];if(d==='More than 3 days'&&!['chest'].includes(s))msg+=' Since symptoms have lasted more than three days, consider contacting a qualified clinician for advice.';document.getElementById('healthResult').hidden=false;document.getElementById('healthResult').textContent=msg+'\n\nThis is general educational information, not an ML diagnosis or personalized medical advice.'});
+render();
+</script>
+</body>
+</html>
