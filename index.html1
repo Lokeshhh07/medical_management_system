@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Medical Management System</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f1f5f9;color:#1e293b}
+header{background:#087f8c;color:white;padding:22px}
+header h1{margin:0;font-size:24px}
+header p{margin:8px 0 0}
+main{padding:20px;max-width:1100px;margin:auto}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:15px}
+.card,.panel{background:white;padding:20px;border-radius:12px;box-shadow:0 2px 8px #0000000d;margin-bottom:16px}
+.card h3{margin:0;color:#64748b;font-size:15px}
+.number{font-size:30px;font-weight:bold;color:#087f8c;margin-top:12px}
+h2{font-size:20px}
+input,button{padding:11px;border-radius:7px;border:1px solid #cbd5e1;margin:5px 0}
+button{background:#087f8c;color:white;border:0;cursor:pointer}
+button:hover{background:#06616b}
+table{width:100%;border-collapse:collapse;margin-top:12px}
+th,td{text-align:left;padding:10px;border-bottom:1px solid #e2e8f0}
+.note{color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <h1>🏥 AI Medical Management System</h1>
+  <p>Smart Healthcare Dashboard</p>
+</header>
+
+<main>
+  <h2>Dashboard Overview</h2>
+  <div class="cards">
+    <div class="card"><h3>Total Patients</h3><div class="number" id="patients">0</div></div>
+    <div class="card"><h3>Appointments</h3><div class="number" id="appointments">0</div></div>
+    <div class="card"><h3>Medicines</h3><div class="number" id="medicines">0</div></div>
+  </div>
+
+  <section class="panel">
+    <h2>➕ Add Patient</h2>
+    <input id="patientName" placeholder="Patient name">
+    <input id="patientAge" type="number" placeholder="Age">
+    <input id="patientProblem" placeholder="Health concern">
+    <button onclick="addPatient()">Add Patient</button>
+    <p class="note">Demo only: information is stored in this browser.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Patient Records</h2>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>Name</th><th>Age</th><th>Health Concern</th><th>Action</th></tr></thead>
+        <tbody id="patientTable"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>🤖 AI/ML Module</h2>
+    <p>Future module for inventory forecasting and unusual stock activity alerts.</p>
+    <p class="note">This demo does not provide medical diagnosis or validated AI predictions.</p>
+  </section>
+</main>
+
+<script>
+let patientList = [];
+try {
+  patientList = JSON.parse(localStorage.getItem("medicalPatients") || "[]");
+  if (!Array.isArray(patientList)) patientList = [];
+} catch (error) {
+  patientList = [];
+}
+
+function savePatients() {
+  try {
+    localStorage.setItem("medicalPatients", JSON.stringify(patientList));
+  } catch (error) {
+    alert("Could not save data in this browser.");
+  }
+}
+
+function addPatient() {
+  const name = document.getElementById("patientName").value.trim();
+  const age = document.getElementById("patientAge").value;
+  const problem = document.getElementById("patientProblem").value.trim();
+
+  if (!name || !age || Number(age) < 1 || !problem) {
+    alert("Please enter a valid name, age and health concern.");
+    return;
+  }
+
+  patientList.push({name, age, problem});
+  savePatients();
+  renderPatients();
+
+  document.getElementById("patientName").value = "";
+  document.getElementById("patientAge").value = "";
+  document.getElementById("patientProblem").value = "";
+}
+
+function removePatient(index) {
+  patientList.splice(index, 1);
+  savePatients();
+  renderPatients();
+}
+
+function renderPatients() {
+  const table = document.getElementById("patientTable");
+  table.replaceChildren();
+
+  patientList.forEach((patient, index) => {
+    const row = document.createElement("tr");
+
+    [patient.name, patient.age, patient.problem].forEach(value => {
+      const cell = document.createElement("td");
+      cell.textContent = value;
+      row.appendChild(cell);
+    });
+
+    const actionCell = document.createElement("td");
+    const button = document.createElement("button");
+    button.textContent = "Delete";
+    button.onclick = () => removePatient(index);
+    actionCell.appendChild(button);
+    row.appendChild(actionCell);
+    table.appendChild(row);
+  });
+
+  document.getElementById("patients").textContent = patientList.length;
+}
+
+renderPatients();
+</script>
+</body>
+</html>
